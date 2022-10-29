@@ -27,7 +27,7 @@ namespace XrayKunden.Model
 
         //Methoden
 
-
+        //Konstruktor
         public Kunde()
         {
             
