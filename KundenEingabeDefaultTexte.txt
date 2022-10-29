@@ -1,0 +1,8 @@
+KundenEingabe Default Texte:
+
+Vorname = "Alle Vornamen eingeben";
+Nachname = "Familienname eingeben";
+Strasse = "Strasse und Hausnummer eingeben";
+Ort = "Ort eingeben";
+Plz = "Postleitzahl eingeben";
+KundenNr = "Kunden-Nummer vergeben";

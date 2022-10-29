@@ -1,0 +1,111 @@
+﻿<UserControl x:Class="XrayKunden.Views.KundenDatenEingabe"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:XrayKunden"
+             xmlns:view="clr-namespace:XrayKunden.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="LightBlue">
+
+    <UserControl.Resources>
+
+    </UserControl.Resources>
+
+
+    <UserControl.DataContext>
+        <view:KundenDatenEingabeViewModel/>
+    </UserControl.DataContext>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <Label FontSize="20" FontWeight="Bold" Foreground="White" Grid.Column="1" 
+               Content="Eingabe Kundendaten:" VerticalAlignment="Center" HorizontalAlignment="Stretch"
+               HorizontalContentAlignment="Left" Background="#FF51AAEE" MinWidth="700" Margin="0 0 5 0"/>
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left"
+                    Grid.Row="1" Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Vorname" Margin="1,1,1,1" VerticalAlignment="Bottom" 
+                       HorizontalAlignment="Left" Width="100" Height="25" Background="#FF51AAEE" Foreground="White"/>
+                <TextBox Text="{Binding Vorname}" VerticalContentAlignment="Center"
+                         Margin="1,1,1,1" Cursor="Pen"
+                         VerticalAlignment="Bottom" Height="25" Width="200" ToolTip="Alle Vornamen eingeben"
+                          />
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Nachname:" Margin="1,1,1,1" VerticalAlignment="Bottom" 
+                       HorizontalAlignment="Left" Width="100" Height="25" Background="#FF51AAEE" Foreground="White"/>
+                <TextBox Text="{Binding Nachname}" VerticalContentAlignment="Center"
+                         Margin="1,1,1,1" Cursor="Pen"
+                         VerticalAlignment="Bottom" Height="25" Width="200" ToolTip="Familienname eingeben"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Strasse und Nr.:" Margin="1,1,1,1" VerticalAlignment="Bottom" 
+                       HorizontalAlignment="Left" Width="100" Height="25" Background="#FF51AAEE" Foreground="White"/>
+                <TextBox Text="{Binding Strasse}" VerticalContentAlignment="Center"
+                         Margin="1,1,1,1" Cursor="Pen"
+                         VerticalAlignment="Bottom" Height="25" Width="200" ToolTip="Strasse und Hausnummer eingeben"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Ort:" Margin="1,1,1,1" VerticalAlignment="Bottom" 
+                       HorizontalAlignment="Left" Width="100" Height="25" Background="#FF51AAEE" Foreground="White"/>
+                <TextBox Text="{Binding Ort}" VerticalContentAlignment="Center"
+                         Margin="1,1,1,1" Cursor="Pen"
+                         VerticalAlignment="Bottom" Height="25" Width="200" ToolTip="Ort eingeben"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="PLZ:" Margin="1,1,1,1" VerticalAlignment="Bottom" 
+                       HorizontalAlignment="Left" Width="100" Height="25" Background="#FF51AAEE" Foreground="White"/>
+                <TextBox Text="{Binding Plz}" VerticalContentAlignment="Center"
+                         Margin="1,1,1,1" Cursor="Pen"
+                         VerticalAlignment="Bottom" Height="25" Width="200" ToolTip="Postleitzahl eingeben"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Kunden-Nr.:" Margin="1,1,1,1" VerticalAlignment="Bottom" 
+                       HorizontalAlignment="Left" Width="100" Height="25" Background="#FF51AAEE" Foreground="White"/>
+                <TextBox Text="{Binding KundenNr}" VerticalContentAlignment="Center"
+                         Margin="1,1,1,1" Cursor="Pen"
+                         VerticalAlignment="Bottom" Height="25" Width="200" ToolTip="Kunden-Nummer vergeben"/>
+            </StackPanel>
+
+
+
+        </StackPanel>
+
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center"
+                    Grid.Row="2" Grid.Column="1">
+            <Button Content="Eingabe löschen" Command="{Binding ClearCommand}" Padding="10" Margin="0, 0, 10 ,0" Width="150"/>
+            <Button Content="Kundendaten speichern" Command="{Binding SaveCommand}" Padding="10" Width="150" Margin="0 0 5 0"/>
+        </StackPanel>
+       
+        <GroupBox Grid.Column="1" Header="Datenspeicher" Foreground="White" Grid.Row="1" Margin="350,25,50,85" >
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton GroupName="DataStroage" Content="JSON Datei local " IsChecked="{Binding Ischeckedjason}" Margin="20 20 20 10" Foreground="White"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton GroupName="DataStroage" Content="Postgres Datenbank local " IsChecked="{Binding Ischeckedpostgres}" Margin="20 10 20 10" Foreground="White"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton GroupName="DataStroage" Content="MySQL Datenbak Internet " IsChecked="{Binding Ischeckedmysqlinternet}" Margin="20 10 20 10" Foreground="White"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Status: " Foreground="White" Margin="20 10 10 5"/>
+                    <Label x:Name="Savecheck" Grid.Column="1" Content="{Binding Savecheck}" HorizontalAlignment="Left" Margin="10 10 10 10" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</UserControl>
