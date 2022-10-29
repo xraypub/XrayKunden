@@ -1,1 +1,1 @@
-﻿https://www.carola-hair.de/dataUpdate.php
+﻿https://IHRE-DOMAIN/dataUpdate.php
