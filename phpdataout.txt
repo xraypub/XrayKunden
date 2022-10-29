@@ -1,1 +1,1 @@
-﻿https://www.carola-hair.de/dataOut.php
+﻿https://IHRE-DOMAIN/dataOut.php
