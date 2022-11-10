@@ -1,6 +1,6 @@
 # XrayKunden - Dateneingabe und Datenbank-Speicherung
 
-XrayKunden ist ein 'Play-Around', um C# WPF/MVVM Funktionalitäten zu testen. Es gibt 3 TabViews für Kundendaten-Eingaben, Speicherung und Listendarstellung.
+XrayKunden ist ein 'try-out', um C# WPF/MVVM Funktionalitäten zu testen. Es gibt 3 TabViews für Kundendaten-Eingaben, Speicherung und Listendarstellung.
 
 1. **Kunden-Daten-Eingabe:**  Verschiedene Kundendaten wie Name, Adresse etc. können in einer Eingabemaske eingegeben werden. Die Daten können dann optional gespeichert werden.
 <br><br> a) als JSON File lokal auf dem Rechner <br> b) in einer lokal installierten Postgres Datenbank <br> c) in einer MySQL Datenbank im Internet - C# kommuniziert mittels PHP<br><br>
